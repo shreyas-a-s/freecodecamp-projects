@@ -155,6 +155,7 @@
       });
 
       document.getElementById('reset').addEventListener('click', function() {
+        if (timeLeft == DEFAULT_MINUTES * 60) return;
         resetTimer();
         document.getElementById('beep').play();
       });

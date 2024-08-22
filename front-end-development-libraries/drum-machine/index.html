@@ -99,5 +99,20 @@
         </div>
       </div>
     </div>
+    <script>
+      function displayName(text) {
+        document.getElementById('display').innerHTML = text.replaceAll('-', ' ');
+      }
+
+      document.getElementById('heater-1').addEventListener('click', () => displayName('heater-1'));
+      document.getElementById('heater-2').addEventListener('click', () => displayName('heater-2'));
+      document.getElementById('heater-3').addEventListener('click', () => displayName('heater-3'));
+      document.getElementById('heater-4').addEventListener('click', () => displayName('heater-4'));
+      document.getElementById('clap').addEventListener('click', () => displayName('clap'));
+      document.getElementById('open-hh').addEventListener('click', () => displayName('open-hh'));
+      document.getElementById('kick-n-hat').addEventListener('click', () => displayName('kick-n-hat'));
+      document.getElementById('kick').addEventListener('click', () => displayName('kick'));
+      document.getElementById('closed-hh').addEventListener('click', () => displayName('closed-hh'));
+    </script>
   </body>
 </html>

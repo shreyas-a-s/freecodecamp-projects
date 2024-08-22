@@ -95,6 +95,8 @@
       let timer;
       let timeLeft = 25 * 60; // 25 minutes in seconds
       let isRunning = false;
+      let breakLength = 5;
+      let sessionLength = 25;
 
       function startTimer() {
         if (timer) return; // Prevent multiple timers
@@ -123,11 +125,24 @@
         const minutes = Math.floor(timeLeft / 60);
         const seconds = timeLeft % 60;
         document.getElementById('time-left').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        document.getElementById('break-length').textContent = breakLength;
+        document.getElementById('session-length').textContent = sessionLength;
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timeLeft = 25 * 60;
+        isRunning = false;
+        breakLength = 5;
+        sessionLength = 25;
+        updateDisplay();
       }
 
       document.getElementById('start_stop').addEventListener('click', function() {
         isRunning ? stopTimer() : startTimer();
       });
+
+      document.getElementById('reset').addEventListener('click', resetTimer);
     </script>
   </body>
 </html>

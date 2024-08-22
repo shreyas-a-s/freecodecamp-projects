@@ -98,6 +98,7 @@
       let isRunning = false;
       let breakLength = 5;
       let sessionLength = DEFAULT_MINUTES;
+      isBreakRunning = false;
 
       function startTimer() {
         if (timer) return; // Prevent multiple timers
@@ -107,7 +108,16 @@
             clearInterval(timer);
             timer = null;
             isRunning = false;
-            document.getElementById('timer-label').textContent = 'A break has begun'
+            if (!isBreakRunning) {
+              isBreakRunning = true;
+              document.getElementById('timer-label').textContent = 'A break has begun'
+              timeLeft = breakLength * 60;
+              startTimer();
+            } else {
+              document.getElementById('timer-label').textContent = 'Session'
+              timeLeft = DEFAULT_MINUTES * 60;
+              updateDisplay();
+            }
             return;
           }
           isRunning = true;

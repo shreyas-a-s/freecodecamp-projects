@@ -88,6 +88,7 @@
         height: auto;
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
   <body>
     <div id="markdown-previewer">
@@ -108,5 +109,18 @@ Code block
       </textarea>
       <div id="preview"></div>
     </div>
+    <script>
+      document.getElementById('editor').addEventListener('input', function() {
+        const markdownText = this.value;
+        const htmlContent = marked.parse(markdownText);
+        document.getElementById('preview').innerHTML = htmlContent;
+      });
+
+      // Trigger the conversion on page load with the default content
+      window.onload = function() {
+        const defaultMarkdown = document.getElementById('editor').value;
+        document.getElementById('preview').innerHTML = marked.parse(defaultMarkdown);
+      };
+    </script>
   </body>
 </html>

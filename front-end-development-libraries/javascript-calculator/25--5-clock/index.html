@@ -154,7 +154,10 @@
         isRunning ? stopTimer() : startTimer();
       });
 
-      document.getElementById('reset').addEventListener('click', resetTimer);
+      document.getElementById('reset').addEventListener('click', function() {
+        resetTimer();
+        document.getElementById('beep').play();
+      });
 
       document.getElementById('break-decrement').addEventListener('click', function() {
         if (isRunning) return;

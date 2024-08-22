@@ -131,6 +131,7 @@
 
       function resetTimer() {
         clearInterval(timer);
+        timer = null;
         timeLeft = 25 * 60;
         isRunning = false;
         breakLength = 5;

@@ -120,12 +120,16 @@
       const quoteBox = document.getElementById('text');
       const authorBox = document.getElementById('author');
       const newQuoteBtn = document.getElementById('new-quote');
+      const tweetBtn = document.getElementById('tweet-quote');
 
       // Function to generate and display random quote
       function generateQuote() {
         const randomNumber = Math.floor(Math.random() * quotes.length);
-        quoteBox.textContent = quotes[randomNumber].quote;
-        authorBox.textContent = '- ' + quotes[randomNumber].author;
+        const quote = quotes[randomNumber].quote;
+        const author = quotes[randomNumber].author;
+        quoteBox.textContent = quote;
+        authorBox.textContent = '- ' + author;
+        tweetBtn.href = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent(quote + ' - ' + author);
       }
 
       // Generate random quote on page load

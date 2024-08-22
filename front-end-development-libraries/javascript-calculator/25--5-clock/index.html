@@ -92,11 +92,12 @@
       <audio id="beep" src="path/to/your/soundfile.mp3"></audio>
     </div>
     <script>
+      const DEFAULT_MINUTES = 25
       let timer;
-      let timeLeft = 25 * 60; // 25 minutes in seconds
+      let timeLeft = DEFAULT_MINUTES * 60; // Time in seconds
       let isRunning = false;
       let breakLength = 5;
-      let sessionLength = 25;
+      let sessionLength = DEFAULT_MINUTES;
 
       function startTimer() {
         if (timer) return; // Prevent multiple timers
@@ -132,10 +133,10 @@
       function resetTimer() {
         clearInterval(timer);
         timer = null;
-        timeLeft = 25 * 60;
+        timeLeft = DEFAULT_MINUTES * 60;
         isRunning = false;
         breakLength = 5;
-        sessionLength = 25;
+        sessionLength = DEFAULT_MINUTES;
         updateDisplay();
       }
 

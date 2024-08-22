@@ -75,6 +75,7 @@
         grid-column: span 2;
       }
     </style>
+    <script src="https://unpkg.com/mathjs@13.0.3/lib/browser/math.js"></script>
   </head>
   <body>
     <div id="calculator">
@@ -86,7 +87,7 @@
         <button class="btn" id="subtract">-</button>
         <button class="btn" id="add">+</button>
         <button class="btn" id="decimal">.</button>
-        <button id="equals">=</button>
+        <button class="equal-btn" id="equals">=</button>
         <button class="btn" id="zero">0</button>
         <button class="btn" id="one">1</button>
         <button class="btn" id="two">2</button>
@@ -128,6 +129,10 @@
 
       document.getElementById('clear').addEventListener('click', function() {
         answer.value = 0;
+      });
+
+      document.getElementById('equals').addEventListener('click', function() {
+        answer.value = math.evaluate(answer.value);
       });
     </script>
   </body>

@@ -106,7 +106,7 @@
             clearInterval(timer);
             timer = null;
             isRunning = false;
-            alert('Time\'s up!');
+            document.getElementById('timer-label').textContent = 'A break has begun'
             return;
           }
           isRunning = true;

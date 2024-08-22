@@ -101,26 +101,23 @@
       isBreakRunning = false;
 
       function startTimer() {
-        if (timer) return; // Prevent multiple timers
+        if (isRunning) return; // Prevent multiple timers
 
+        isRunning = true;
         timer = setInterval(() => {
           if (timeLeft <= 0) {
             clearInterval(timer);
-            timer = null;
-            isRunning = false;
-            if (!isBreakRunning) {
-              isBreakRunning = true;
+            isBreakRunning = !isBreakRunning; // Toggle between session and break
+            if (isBreakRunning) {
               document.getElementById('timer-label').textContent = 'A break has begun'
-              timeLeft = breakLength * 60;
-              startTimer();
+              timeLeft = breakLength * 60; // Reset time
             } else {
-              document.getElementById('timer-label').textContent = 'Session'
-              timeLeft = DEFAULT_MINUTES * 60;
-              updateDisplay();
+              document.getElementById('timer-label').textContent = 'A session has begun'
+              timeLeft = DEFAULT_MINUTES * 60; // Reset time
             }
-            return;
+            isRunning = false;
+            startTimer();
           }
-          isRunning = true;
           timeLeft--;
           updateDisplay();
         }, 1000);

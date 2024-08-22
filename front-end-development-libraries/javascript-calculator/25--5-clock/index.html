@@ -116,6 +116,7 @@
               timeLeft = sessionLength * 60; // Reset time
             }
             isRunning = false;
+            document.getElementById('beep').play();
             startTimer();
           }
           timeLeft--;

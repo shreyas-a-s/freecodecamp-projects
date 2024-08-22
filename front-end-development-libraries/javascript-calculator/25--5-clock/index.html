@@ -145,22 +145,22 @@
       document.getElementById('reset').addEventListener('click', resetTimer);
 
       document.getElementById('break-decrement').addEventListener('click', function() {
-        breakLength -= 1;
+        breakLength -= breakLength == 1 ? 0 : 1;
         updateDisplay();
       });
 
       document.getElementById('break-increment').addEventListener('click', function() {
-        breakLength += 1;
+        breakLength += breakLength == 60 ? 0 : 1;
         updateDisplay();
       });
 
       document.getElementById('session-decrement').addEventListener('click', function() {
-        sessionLength -= 1;
+        sessionLength -= sessionLength == 1 ? 0 : 1;
         updateDisplay();
       });
 
       document.getElementById('session-increment').addEventListener('click', function() {
-        sessionLength += 1;
+        sessionLength += sessionLength == 60 ? 0 : 1;
         updateDisplay();
       });
     </script>

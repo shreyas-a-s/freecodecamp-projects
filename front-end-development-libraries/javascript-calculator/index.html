@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+
+      #calculator {
+        width: 250px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 10px;
+      }
+
+      #display {
+        background-color: #222;
+        color: #fff;
+        font-size: 2em;
+        text-align: right;
+        padding: 20px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      #buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      button {
+        background-color: #eee;
+        border: none;
+        border-radius: 4px;
+        font-size: 1.5em;
+        padding: 20px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      button:hover {
+        background-color: #ddd;
+      }
+
+      button:active {
+        background-color: #ccc;
+      }
+
+      #clear {
+        background-color: #ff6666;
+        color: #fff;
+        grid-column: span 2;
+      }
+
+      #equals {
+        background-color: #4caf50;
+        color: #fff;
+        grid-column: span 2;
+      }
+
+      #decimal, #zero {
+        grid-column: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calculator">
+      <div id="display">0</div>
+      <div id="buttons">
+        <button id="clear">C</button>
+        <button id="divide">/</button>
+        <button id="multiply">*</button>
+        <button id="subtract">-</button>
+        <button id="add">+</button>
+        <button id="decimal">.</button>
+        <button id="equals">=</button>
+        <button id="zero">0</button>
+        <button id="one">1</button>
+        <button id="two">2</button>
+        <button id="three">3</button>
+        <button id="four">4</button>
+        <button id="five">5</button>
+        <button id="six">6</button>
+        <button id="seven">7</button>
+        <button id="eight">8</button>
+        <button id="nine">9</button>
+      </div>
+    </div>
+  </body>
+</html>

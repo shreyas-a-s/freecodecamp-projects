@@ -123,7 +123,7 @@
 
       // Function to generate and display random quote
       function generateQuote() {
-        const randomNumber = Math.floor(Math.random() * 10);
+        const randomNumber = Math.floor(Math.random() * quotes.length);
         quoteBox.textContent = quotes[randomNumber].quote;
         authorBox.textContent = '- ' + quotes[randomNumber].author;
       }

@@ -99,5 +99,19 @@
         <button id="nine">9</button>
       </div>
     </div>
+    <script>
+      const answer = {
+        _value: 0,
+        get value() {
+          return this._value;
+        },
+        set value(newValue) {
+          if (newValue[0] === '0') newValue = newValue.substring(1);
+          document.getElementById('display').textContent = newValue;
+          this._value = newValue;
+        }
+      };
+
+    </script>
   </body>
 </html>

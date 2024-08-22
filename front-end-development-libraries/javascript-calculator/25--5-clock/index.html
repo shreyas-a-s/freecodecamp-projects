@@ -113,7 +113,7 @@
               timeLeft = breakLength * 60; // Reset time
             } else {
               document.getElementById('timer-label').textContent = 'A session has begun'
-              timeLeft = DEFAULT_MINUTES * 60; // Reset time
+              timeLeft = sessionLength * 60; // Reset time
             }
             isRunning = false;
             startTimer();

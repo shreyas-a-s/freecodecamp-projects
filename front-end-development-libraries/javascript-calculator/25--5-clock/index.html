@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25 + 5 Clock</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+      }
+
+      #clock-container {
+        text-align: center;
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #break-label, #session-label, #timer-label {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      #break-controls, #session-controls {
+        margin-bottom: 20px;
+      }
+
+      #break-controls button, #session-controls button {
+        font-size: 1.2em;
+        padding: 10px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+
+      #break-length, #session-length {
+        font-size: 1.5em;
+        display: inline-block;
+        width: 50px;
+      }
+
+      #time-left {
+        font-size: 3em;
+        margin: 20px 0;
+      }
+
+      #start_stop, #reset {
+        font-size: 1.2em;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      audio {
+        display: none; /* Hide the audio element */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock-container">
+      <!-- Break Length Section -->
+      <div id="break-label">Break Length</div>
+      <div id="break-controls">
+        <button id="break-decrement">-</button>
+        <span id="break-length">5</span>
+        <button id="break-increment">+</button>
+      </div>
+
+      <!-- Session Length Section -->
+      <div id="session-label">Session Length</div>
+      <div id="session-controls">
+        <button id="session-decrement">-</button>
+        <span id="session-length">25</span>
+        <button id="session-increment">+</button>
+      </div>
+
+      <!-- Timer Section -->
+      <div id="timer-label">Session</div>
+      <div id="time-left">25:00</div>
+
+      <!-- Control Buttons -->
+      <button id="start_stop">Start/Stop</button>
+      <button id="reset">Reset</button>
+
+      <!-- Audio Element for Beep -->
+      <audio id="beep" src="path/to/your/soundfile.mp3"></audio>
+    </div>
+  </body>
+</html>

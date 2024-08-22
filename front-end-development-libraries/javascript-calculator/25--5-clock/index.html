@@ -160,11 +160,13 @@
       document.getElementById('session-decrement').addEventListener('click', function() {
         if (isRunning) return;
         sessionLength -= sessionLength == 1 ? 0 : 1;
+        timeLeft -= 60;
         updateDisplay();
       });
 
       document.getElementById('session-increment').addEventListener('click', function() {
         if (isRunning) return;
+        timeLeft += 60;
         sessionLength += sessionLength == 60 ? 0 : 1;
         updateDisplay();
       });

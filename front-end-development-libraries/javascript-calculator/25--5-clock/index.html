@@ -91,5 +91,43 @@
       <!-- Audio Element for Beep -->
       <audio id="beep" src="path/to/your/soundfile.mp3"></audio>
     </div>
+    <script>
+      let timer;
+      let timeLeft = 25 * 60; // 25 minutes in seconds
+      let isRunning = false;
+
+      function startTimer() {
+        if (timer) return; // Prevent multiple timers
+
+        timer = setInterval(() => {
+          if (timeLeft <= 0) {
+            clearInterval(timer);
+            timer = null;
+            isRunning = false;
+            alert('Time\'s up!');
+            return;
+          }
+          isRunning = true;
+          timeLeft--;
+          updateDisplay();
+        }, 1000);
+      }
+
+      function stopTimer() {
+        clearInterval(timer);
+        timer = null;
+        isRunning = false;
+      }
+
+      function updateDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        document.getElementById('time-left').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+      }
+
+      document.getElementById('start_stop').addEventListener('click', function() {
+        isRunning ? stopTimer() : startTimer();
+      });
+    </script>
   </body>
 </html>

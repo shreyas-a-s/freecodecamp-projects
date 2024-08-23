@@ -127,7 +127,7 @@
       });
 
       document.getElementById('equals').addEventListener('click', function() {
-        answer.value = math.evaluate(answer.value);
+        answer.value = parseFloat(math.evaluate(answer.value).toFixed(13));
       });
     </script>
   </body>

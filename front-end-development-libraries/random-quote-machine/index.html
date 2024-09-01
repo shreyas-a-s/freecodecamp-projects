@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Random Quote Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
       body {
         display: flex;
@@ -74,62 +75,34 @@
       <a id="tweet-quote" href="https://twitter.com/intent/tweet" target="_blank">Tweet Quote</a>
     </div>
     <script>
-      const quotes = [
-        {
-          quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
-          author: "Nelson Mandela"
-        },
-        {
-          quote: "The way to get started is to quit talking and begin doing.",
-          author: "Walt Disney"
-        },
-        {
-          quote: "Your time is limited, so don't waste it living someone else's life.",
-          author: "Steve Jobs"
-        },
-        {
-          quote: "If life were predictable it would cease to be life, and be without flavor.",
-          author: "Eleanor Roosevelt"
-        },
-        {
-          quote: "If you look at what you have in life, you'll always have more.",
-          author: "Oprah Winfrey"
-        },
-        {
-          quote: "Life is what happens when you're busy making other plans.",
-          author: "John Lennon"
-        },
-        {
-          quote: "Spread love everywhere you go. Let no one ever come to you without leaving happier.",
-          author: "Mother Teresa"
-        },
-        {
-          quote: "Don't watch the clock; do what it does. Keep going.",
-          author: "Sam Levenson"
-        },
-        {
-          quote: "The future belongs to those who believe in the beauty of their dreams.",
-          author: "Eleanor Roosevelt"
-        },
-        {
-          quote: "It is during our darkest moments that we must focus to see the light.",
-          author: "Aristotle"
-        }
-      ];
-
       const quoteBox = document.getElementById('text');
       const authorBox = document.getElementById('author');
       const newQuoteBtn = document.getElementById('new-quote');
       const tweetBtn = document.getElementById('tweet-quote');
 
+      // Function to update UI
+      function updateUI(quote, author) {
+        quoteBox.textContent = quote;
+        authorBox.textContent = author ? '- ' + author : '';
+        tweetBtn.href = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent(quote + ' - ' + author);
+      }
+
       // Function to generate and display random quote
       function generateQuote() {
-        const randomNumber = Math.floor(Math.random() * quotes.length);
-        const quote = quotes[randomNumber].quote;
-        const author = quotes[randomNumber].author;
-        quoteBox.textContent = quote;
-        authorBox.textContent = '- ' + author;
-        tweetBtn.href = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent(quote + ' - ' + author);
+        const headers = {
+          'X-Api-Key': 'APININJAS_API_KEY',
+        };
+
+        axios.get('https://api.api-ninjas.com/v1/quotes?category=happiness', { headers: headers })
+          .then(response => {
+            const quote = response.data[0].quote;
+            const author = response.data[0].author;
+            updateUI(quote, author);
+          })
+          .catch(error => {
+            const errorMsg = "Error: " + error.message;
+            console.log(errorMsg);
+          });
       }
 
       // Generate random quote on page load

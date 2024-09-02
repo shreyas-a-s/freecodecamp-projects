@@ -1,4 +1,4 @@
-## freeCodeCamp Projetcs
+## freeCodeCamp Projects
 This repo contains the certification projects I did for freeCodeCamp courses.
 
 ## Front-End Development Libraries

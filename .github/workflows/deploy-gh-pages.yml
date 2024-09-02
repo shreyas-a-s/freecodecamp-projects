@@ -20,6 +20,13 @@ jobs:
       - name: Replace text in random-quote-machine
         run: sed -i "s/APININJAS_API_KEY/${{ secrets.APININJAS_API_KEY }}/g" ./front-end-development-libraries/random-quote-machine/index.html
 
+      - name: Install Pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Convert README.md to index.html
+        run: |
+          pandoc README.md -o index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
